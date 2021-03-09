@@ -34,6 +34,7 @@ public class FlightRestController {
 
 	@Autowired
 	private FlightDao dao;
+	
 	@Autowired
 	private BookingDao bookingDao;
 	
