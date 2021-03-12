@@ -23,29 +23,21 @@ public class Flight {
 	private String duration;
 	private LocalDate flightDate;
 	private LocalTime flightTime;
-	
-	
-	
+
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "fareId")
 	private Fare fare;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "invId")
 	private Inventory inventory;
-	
-	
+
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="airlineId")
+	@JoinColumn(name = "airlineId")
 	private AirlineInfo airlineInfo;
-	
-	
+
 	public Flight() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	
-	
-	
 
 	public Flight(String flightNumber, String origin, String destination, String duration, LocalDate flightDate,
 			LocalTime flightTime, Fare fare, Inventory inventory, AirlineInfo airlineInfo) {
@@ -61,9 +53,13 @@ public class Flight {
 		this.airlineInfo = airlineInfo;
 	}
 
+	public AirlineInfo getAirlineInfo() {
+		return airlineInfo;
+	}
 
-
-
+	public void setAirlineInfo(AirlineInfo airlineInfo) {
+		this.airlineInfo = airlineInfo;
+	}
 
 	public int getId() {
 		return id;
