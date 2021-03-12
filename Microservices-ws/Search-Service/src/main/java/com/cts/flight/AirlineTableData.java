@@ -172,7 +172,7 @@ public class AirlineTableData {
 				new Inventory(100),a6));
 		flights.add(new Flight(f23.getFlightNumber(), "DELHI", "CHENNAI","1 hrs 55 mins", LocalDate.of(2021, 2, 26),LocalTime.of(22, 45), new Fare(9000, "INR"),
 				new Inventory(100),a6));
-     //  flightRepository.saveAll(flights);
+         flightRepository.saveAll(flights);
 
 	}
 

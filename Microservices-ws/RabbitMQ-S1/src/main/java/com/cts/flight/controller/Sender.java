@@ -1,5 +1,9 @@
 package com.cts.flight.controller;
 
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitMessagingTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +28,9 @@ public class Sender {
 		return new Queue("TestQ1",false);
 	}
 	
-	@RequestMapping("/pushData")
-	public void sendData() {
-		System.out.println(">>>>> Pushing data to queue <<<<<");
-		rmt.convertAndSend("TestQ1","This is JMS Test message - 1");
+	public void sendData(Map<String, Object> data) {
+		System.out.println(">>>>> Updating Booking Info to RabbitMQ <<<<<");
+		rmt.convertAndSend("TestQ1",data);
 	}
 	
 	

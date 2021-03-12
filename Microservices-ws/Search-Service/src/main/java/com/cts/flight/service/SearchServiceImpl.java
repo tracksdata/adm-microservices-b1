@@ -16,6 +16,7 @@ import com.cts.flight.model.SearchQuery;
 
 @Service
 public class SearchServiceImpl implements SearchService {
+	
 	@Autowired
 	private FlightDao flightDao;
 
