@@ -14,6 +14,8 @@ public interface FlightDao extends JpaRepository<Flight, Integer> {
 			String origin, String destination, LocalDate flightDate, LocalTime flightTime);
 
 	public Flight findFlightByFlightNumberAndFlightDate(String flightNumber, LocalDate flightDate);
+	Flight findByFlightNumberAndFlightDateAndOriginAndDestination(String flightNumber,LocalDate flightDate,String origin,String destination);
+
 	
 	public List<Flight> findFlightByOriginAndDestinationAndFlightDate(String origin,String destination,LocalDate flightDate);
 

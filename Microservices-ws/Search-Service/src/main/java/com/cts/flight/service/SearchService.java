@@ -16,5 +16,6 @@ public interface SearchService {
 
 	public void updateInventory(String flightNumber, LocalDate flightDate, int newInventory);
 	public List<Flight> searchFlight(String origin,String destination,LocalDate flightDate,int numberofPassengers);
+	Flight findByFlightNumberAndFlightDateAndOriginAndDestination(String flightNumber,LocalDate flightDate,String origin,String destination);
 
 }

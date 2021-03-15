@@ -32,7 +32,7 @@ public class Receiver {
 		System.out.println((int) inventory.get("NEW_INVENTORY"));
 		System.out.println("----------------------------------------");
 
-		searchService.updateInventory((String) inventory.get("FLIGHT_NUMBER"), (LocalDate) inventory.get("FLIGHTDATE"),
+		searchService.updateInventory((String) inventory.get("FLIGHT_NUMBER"), (LocalDate) inventory.get("FLIGHT_DATE"),
 				(int) inventory.get("NEW_INVENTORY"));
 		
 		

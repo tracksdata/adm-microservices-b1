@@ -38,6 +38,14 @@ public class SearchRestController {
 		
 		return searchService.searchFlight(origin, destination, flightDate, numberofPassengers);
 	}
+	
+	@GetMapping("/findFlight/{flightNumber}/{flightDate}/{origin}/{destination}")
+	public Flight findFlight(@PathVariable String flightNumber,
+			@PathVariable @DateTimeFormat(iso = ISO.DATE) LocalDate flightDate,
+			@PathVariable String origin,
+			@PathVariable String destination){
+		return searchService.findByFlightNumberAndFlightDateAndOriginAndDestination(flightNumber, flightDate, origin, destination);
+	}
 
 	@GetMapping("/{id}")
 	public Flight findFLightById(@PathVariable("id") int id) {

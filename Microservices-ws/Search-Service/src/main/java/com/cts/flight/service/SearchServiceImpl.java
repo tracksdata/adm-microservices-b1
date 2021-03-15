@@ -3,14 +3,14 @@ package com.cts.flight.service;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import javax.management.RuntimeErrorException;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cts.flight.dao.FlightDao;
 import com.cts.flight.entity.Flight;
+import com.cts.flight.entity.FlightInfo;
 import com.cts.flight.entity.Inventory;
 import com.cts.flight.model.SearchQuery;
 
@@ -40,6 +40,14 @@ public class SearchServiceImpl implements SearchService {
 
 		List<Flight> flights = flightDao.findFlightByOriginAndDestinationAndFlightDate(origin,
 				destination, flightDate);
+		
+		   flights.forEach(flight->{
+			flight.getAirlineInfo().getFlights().removeIf(ai->!(ai.getFlightNumber().equals(flight.getFlightNumber())));
+			
+		   });
+		
+		//flights.stream().filter(flight->flight.getAirlineInfo().getFlights()
+		//		.stream(fi->fi.getFlightNumber().equalsTo(flight.getFlightNumber()).collect(Collectors.toList())));
 
 		return flights.stream().filter(flight -> flight.getInventory().getCount() >= numberofPassengers)
 				.collect(Collectors.toList());
@@ -67,5 +75,14 @@ public class SearchServiceImpl implements SearchService {
 	public Flight findFlightById(int id) {
 		return flightDao.findById(id).orElse(null);
 	}
+	
+	
+	
+	public Flight findByFlightNumberAndFlightDateAndOriginAndDestination(String flightNumber,LocalDate flightDate,String origin,String destination) {
+		return flightDao.findByFlightNumberAndFlightDateAndOriginAndDestination(flightNumber, flightDate, origin, destination);
+	}
+	
+	
+	
 
 }
