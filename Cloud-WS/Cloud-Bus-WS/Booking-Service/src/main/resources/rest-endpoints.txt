@@ -1,0 +1,46 @@
+--------------------------
+For Placing new Booking
+--------------------------
+Method: POST
+URL: http://localhost:8083/api/booking/3
+Request Body:
+      
+      {
+        "flightNumber":"AI-840",
+        "origin":"Delhi",
+        "destination":"Chennai",
+        "flightDate":"2021-02-26",
+
+        "passenger":{
+        "firstName": "Ravi",
+        "lastName": "Babu",
+        "emailAddress": "pavi@abc.com",
+        "gender": "Male",
+        "mobileNumber": 8765434587,
+        "coPassengers": [
+            {
+                "firstName": "Ken",
+                "lastName": "Sel",
+                "gender": "Male"
+            },
+               {
+                "firstName": "Maruti",
+                "lastName": "Ram",
+                "gender": "Male"
+               }
+          ]
+        }
+     }
+    
+    
+    -----------------------------------------------------
+    For Searching booking information using booking id
+    -----------------------------------------------------
+    Method: GET
+    URL: http://localhost:8083/api/booking/149
+    
+    
+    
+    
+    
+   
